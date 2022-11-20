@@ -5,6 +5,7 @@ import { presetWind } from 'unocss';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base:'/article-form',
   plugins: [  Unocss({
     presets: [ presetWind()],
     shortcuts: {
