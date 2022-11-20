@@ -85,7 +85,7 @@ const App: React.FC = () => {
               </Col>
               <Col span={7} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
                 <Card bordered={false} bodyStyle={{ padding: 10 }} className="relative">
-                  <div style={{ backgroundImage: `url('/xiaohongshu.png')`, height: 650, width: 300, backgroundSize: '100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', paddingTop: 70, overflow: 'auto', paddingBottom: 65 }}>
+                  <div style={{ backgroundImage: `url('/article-form/xiaohongshu.png')`, height: 650, width: 300, backgroundSize: '100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', paddingTop: 70, overflow: 'auto', paddingBottom: 65 }}>
                     <img src='/meishi.jpeg' height={300}  />
                     <div ref={contentRef}>
                       <Render />
