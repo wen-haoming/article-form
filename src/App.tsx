@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import { Card, MenuProps, Row, Col, Button, message ,ConfigProvider} from 'antd';
+import { Card, MenuProps, Row, Col, Button, message, ConfigProvider } from 'antd';
 import { Layout, Menu, Form } from 'antd';
 import zh from 'antd/locale/zh_CN'
 import { AddIcon, Render } from './components';
@@ -47,63 +47,65 @@ const App: React.FC = () => {
   const [formData, setFormData] = useState<Record<string, any>>({})
 
   return (
-    <ConfigProvider  locale={zh}>
-         <Layout className='layout'>
-      <Content>
-        <Layout className="site-layout-background" >
-          <Sider className="site-layout-background" width={200} style={{ height: '100vh' }}>
-            <Menu
-              mode="inline"
-              defaultSelectedKeys={['打卡模板', '小红书模板']}
-              defaultOpenKeys={['打卡模板', '小红书模板']}
-              style={{ height: '100%' }}
-              items={[
-                {
-                  key: '小红书模板',
-                  label: `小红书模板`,
-                  children: [
-                    {
-                      key: '打卡模板',
-                      label: `打卡模板`,
-                    }
-                  ]
-                }
-              ]}
-            />
-          </Sider>
-          <Content style={{ padding: '15px', minHeight: 280, backgroundColor: '#ececec' }}>
-            <Row gutter={20}>
-              <Col span={17} >
-                {/* <Card bordered={false} className="m-b-1 p-0" bodyStyle={{ padding: 7 }} >
+    <ConfigProvider locale={zh}>
+      <Layout className='layout'>
+        <Content>
+          <Layout className="site-layout-background" >
+            <Sider className="site-layout-background" width={200} style={{ height: '100vh' }}>
+              <Menu
+                mode="inline"
+                defaultSelectedKeys={['打卡模板', '小红书模板']}
+                defaultOpenKeys={['打卡模板', '小红书模板']}
+                style={{ height: '100%' }}
+                items={[
+                  {
+                    key: '小红书模板',
+                    label: `小红书模板`,
+                    children: [
+                      {
+                        key: '打卡模板',
+                        label: `打卡模板`,
+                      }
+                    ]
+                  }
+                ]}
+              />
+            </Sider>
+            <Content style={{ padding: '15px', minHeight: 280, backgroundColor: '#ececec' }}>
+              <Row gutter={20}>
+                <Col span={17} >
+                  {/* <Card bordered={false} className="m-b-1 p-0" bodyStyle={{ padding: 7 }} >
                   <div style={{ width: '100%', height: '100%', alignItems: 'center', display: 'flex' }}>
                     <AddIcon />
                   </div>
                 </Card> */}
-                <Card bordered={false} >
-                  <WeightLoss />
-                </Card>
-              </Col>
-              <Col span={7} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-                <Card bordered={false} bodyStyle={{ padding: 10 }} className="relative">
-                  <div style={{ backgroundImage: `url('/article-form/xiaohongshu.png')`, height: 650, width: 300, backgroundSize: '100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', paddingTop: 70, overflow: 'auto', paddingBottom: 65 }}>
-                    <img src='/article-form/meishi.jpeg' height={300}  />
-                    <div ref={contentRef}>
-                      <Render />
+                  <Card bordered={false} >
+                    <WeightLoss />
+                  </Card>
+                </Col>
+                <Col span={7} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+                  <Card bordered={false} bodyStyle={{ padding: 10 }} className="relative">
+                    <div style={{ display:'flex',flexDirection:'column',backgroundImage: `url('/article-form/xiaohongshu.png')`, height: 650, width: 300, backgroundSize: '100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', paddingTop: 70, paddingBottom: 65 }}>
+                      <div style={{ overflow: 'auto',scrollbarWidth: 'none',display:'flex',flexDirection:'column' ,flex:1,}}>
+                        <img src='/article-form/meishi.jpeg' height={300}  style={{ objectFit: 'cover',width:"100%" }} />
+                        <div ref={contentRef} style={{flex:1}}>
+                          <Render />
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <Button type="primary" block className='mt-5' onClick={() => {
-                    copyText(contentRef.current.innerText)
-                    message.success('复制成功~')
-                  }}>一键复制</Button>
-                </Card>
-              </Col>
-            </Row>
-          </Content>
-        </Layout>
-      </Content>
-    </Layout>
+                    <Button type="primary" block className='mt-5' onClick={() => {
+                      copyText(contentRef.current.innerText)
+                      message.success('复制成功~')
+                    }}>一键复制</Button>
+                  </Card>
+                </Col>
+              </Row>
+            </Content>
+          </Layout>
+        </Content>
+      </Layout>
     </ConfigProvider>
- 
+
   )
 };
 
